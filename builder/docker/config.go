@@ -12,6 +12,7 @@ type Config struct {
 	ExportPath string `mapstructure:"export_path"`
 	Image      string
 	Pull       bool
+  Hostname   string
 
 	tpl *packer.ConfigTemplate
 }
@@ -46,6 +47,7 @@ func NewConfig(raws ...interface{}) (*Config, []string, error) {
 	templates := map[string]*string{
 		"export_path": &c.ExportPath,
 		"image":       &c.Image,
+    "hostname":    &c.Hostname,
 	}
 
 	for n, ptr := range templates {

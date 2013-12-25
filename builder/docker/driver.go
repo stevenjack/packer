@@ -29,4 +29,5 @@ type Driver interface {
 type ContainerConfig struct {
 	Image   string
 	Volumes map[string]string
+  Hostname string
 }

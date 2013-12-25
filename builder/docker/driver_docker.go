@@ -54,6 +54,10 @@ func (d *DockerDriver) StartContainer(config *ContainerConfig) (string, error) {
 
 	args = append(args, config.Image, "/bin/bash")
 
+  if len(config.Hostname) > 0 {
+    args = append(args, "-h", config.Hostname)
+  }
+
 	// Start the container
 	var stdout, stderr bytes.Buffer
 	cmd := exec.Command("docker", args...)
